@@ -26,7 +26,7 @@ jobs:
         customHeaders: '{"Content-Type": "application/json"}'
     - name: Push build ID to Git
       run: |
-        snapshot=$(echo ${{ toJson(steps.quay.outputs.response) }} | jq '[ .tags[].name] | map(select(. | startswith("2.7.1-DOWNSTREAM")))' | jq .[0] | tr -d '"')
+        snapshot=$(echo ${{ toJson(steps.quay.outputs.response) }} | jq '[ .tags[].name] | map(select(. | startswith("2.8.0-DOWNSTREAM")))' | jq .[0] | tr -d '"')
         echo $snapshot > snapshot.txt
         cat snapshot.txt
         git config --global user.email "phwu@redhat.com"
